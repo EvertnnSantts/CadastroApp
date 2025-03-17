@@ -1,0 +1,157 @@
+//Aplicação de cadastro e consultas de usuarios.
+//Nome da aplicação: "cadastroEconsultas".
+using System;
+using System.Collections.Generic;
+namespace CadastroEConsultas
+{
+    class Program {
+        static List<Pessoa> pessoas = new List<Pessoa>();
+        static void Main(string[] args)
+        {
+            // Coleta de nome do usuário:
+            Console.WriteLine("Bem-vindo ao cadastroEconsultas \nQual é seu nome?");
+            string? nome = Console.ReadLine();
+            // Se o usuário recusar a digitar seu nome, os serviços da aplicação não serão disponíveis:
+            if (string.IsNullOrEmpty(nome))
+            {
+                Console.WriteLine("Por favor, Digite seu nome! Tente novamente...");
+                return;
+            }
+
+            // Bloco de serviços da aplicação:
+            Console.WriteLine($"Bem-vindo {nome}! ao nosso menu de serviços");
+            Console.WriteLine("1. Cadastrar Usuario\n2. Lista de Usuarios\n3. Sair");
+            Console.WriteLine("Escolha uma opção: \nObs: Digite apenas o número do serviço desejado!");
+
+            // A aplicação irá direcionar o usuário de acordo com a escolha
+            string opcao = Console.ReadLine();
+            switch (opcao)
+            {
+                case "1":
+                    CadastrarPessoa();
+                    break;
+                case "2":
+                    ListarUsuarios();
+                    break;
+                case "3":
+                    Console.WriteLine("Encerrado....");
+                    return;
+                default:
+                    Console.WriteLine("Opção inválida! Tente novamente.");
+                    break;
+            }
+        }
+
+        // Cadastro de usuários:
+        static void CadastrarPessoa()
+        {
+            // Área de coletar dados do usuário
+            Console.WriteLine("-------- ÁREA DE CADASTRO --------");
+            Console.Write("Nome do usuário: ");
+            string nome = Console.ReadLine();
+            Console.Write("Email do usuário: ");
+            string email = Console.ReadLine();
+            Console.Write("Idade do usuário: ");
+            int idade;
+            while (!int.TryParse(Console.ReadLine(), out idade))
+            {
+                Console.WriteLine("Idade inválida. Por favor, insira um número válido.");
+            }
+            // Criação do objeto Pessoa:
+            Pessoa novaPessoa = new Pessoa(nome, email, idade);
+            // Adicionando o novo usuário à lista de cadastro
+            pessoas.Add(novaPessoa);
+            // Mensagem de sucesso:
+            Console.WriteLine($"Usuário {nome} cadastrado com sucesso!");
+            //escolha da consulta
+            Console.WriteLine("Pronto, agora você quê ir para lista Usuario? responda com: Sim ou Não");
+             string? resposta = Console.ReadLine();
+            if (resposta == "Sim" || resposta == "sim" || resposta == "s" || resposta == "S"){
+              ListarUsuarios();
+            }else if(resposta == "Nao" || resposta == "nao" || resposta == "n" || resposta == "N"){
+             Console.WriteLine("Ok, encerrado...");
+            }else{
+               Console.WriteLine("Algo deu errado!");
+            }
+        }
+
+        // Função de busca e listagem de usuários:
+        static void ListarUsuarios(){
+            if (pessoas.Count == 0){
+            //Se não existe usuário na aplicação, a seguinte mensagem irá aparecer:
+            Console.WriteLine("Ops, ainda não existe usuário cadastrado :(");
+            }
+
+            //Lista de usuários:
+            Console.WriteLine("-------- Lista de Pessoas --------");
+            foreach (var pessoa in pessoas){
+             Console.WriteLine($"Nome: {pessoa.Nome}, Email: {pessoa.Email}, Idade: {pessoa.Idade}");
+            }
+            Console.WriteLine("-------- MENU --------");
+            Console.WriteLine("1.Consulta usuario por nome\n2.Cadastrar usuario\n3.Sair\nObs: digiti apenas o numero da opçao que deseja. ");
+             string? resposta = Console.ReadLine();
+                 switch (resposta)
+            {
+                case "1":
+                    BuscarUsuario();
+                    break;
+                case "2":
+                     CadastrarPessoa();
+                    break;
+                case "3":
+                    Console.WriteLine("Encerrado....");
+                    return;
+                default:
+                    Console.WriteLine("Opção inválida! Tente novamente.");
+                    break;
+            }
+        }
+
+        static void BuscarUsuario(){
+         Console.WriteLine("Digite o nome do usuário que deseja buscar:");
+         string? nomeBusca = Console.ReadLine();
+
+         //A busca atraves o usuário na lista pelo nome (case-insensitive)
+         var usuarioEncontrado = pessoas.Find(p => p.Nome.Equals(nomeBusca, StringComparison.OrdinalIgnoreCase));
+
+      if (usuarioEncontrado != null) {
+        //Exibe as informações do usuário encontrado
+        Console.WriteLine($"Usuário encontrado: Nome: {usuarioEncontrado.Nome}, Email: {usuarioEncontrado.Email}, Idade: {usuarioEncontrado.Idade}");
+        }else{
+        //Caso o usuário não seja encontrado:
+        Console.WriteLine("Usuário não encontrado.");
+        }
+        Console.WriteLine("-------- MENU --------");
+        Console.WriteLine("1. Cadastrar Usuario\n2. Lista de Usuarios\n3. Sair");
+        Console.WriteLine("Escolha uma opção: \nObs: Digite apenas o número do serviço desejado!");
+        // A aplicação irá direcionar o usuário de acordo com a escolha
+        string opcao1 = Console.ReadLine();
+         switch (opcao1){
+                case "1":
+                    CadastrarPessoa();
+                    break;
+                case "2":
+                    ListarUsuarios();
+                    break;
+                case "3":
+                    Console.WriteLine("Encerrado....");
+                    return;
+                default:
+                    Console.WriteLine("Opção inválida! Tente novamente.");
+                    break;
+            }
+        }
+    }
+        // Classe do objeto "pessoa":
+        class Pessoa{
+            public string Nome { get; set; }
+            public string Email { get; set; }
+            public int Idade { get; set; }
+            public Pessoa(string nome, string email, int idade) {
+                Nome = nome;
+                Email = email;
+                Idade = idade;
+            }
+        }
+
+    }
