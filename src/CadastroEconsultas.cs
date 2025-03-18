@@ -1,7 +1,5 @@
 //Aplicação de cadastro e consultas de usuarios.
 //Nome da aplicação: "cadastroEconsultas".
-using System;
-using System.Collections.Generic;
 namespace CadastroEConsultas
 {
     class Program {
@@ -14,31 +12,33 @@ namespace CadastroEConsultas
             // Se o usuário recusar a digitar seu nome, os serviços da aplicação não serão disponíveis:
             if (string.IsNullOrEmpty(nome))
             {
-                Console.WriteLine("Por favor, Digite seu nome! Tente novamente...");
+                Console.WriteLine("Não pdemos continuar sem seu nome :(");
                 return;
             }
 
             // Bloco de serviços da aplicação:
-            Console.WriteLine($"Bem-vindo {nome}! ao nosso menu de serviços");
-            Console.WriteLine("1. Cadastrar Usuario\n2. Lista de Usuarios\n3. Sair");
-            Console.WriteLine("Escolha uma opção: \nObs: Digite apenas o número do serviço desejado!");
+            while (true){
+                // Bloco de serviços da aplicação:
+                Console.WriteLine($"\nBem-vindo {nome}! ao nosso menu de serviços");
+                Console.WriteLine("1. Cadastrar Usuario\n2. Lista de Usuarios\n3. Sair");
+                Console.WriteLine("Escolha uma opção: \nObs: Digite apenas o número do serviço desejado!");
 
-            // A aplicação irá direcionar o usuário de acordo com a escolha
-            string opcao = Console.ReadLine();
-            switch (opcao)
-            {
-                case "1":
-                    CadastrarPessoa();
-                    break;
-                case "2":
-                    ListarUsuarios();
-                    break;
-                case "3":
-                    Console.WriteLine("Encerrado....");
-                    return;
-                default:
-                    Console.WriteLine("Opção inválida! Tente novamente.");
-                    break;
+                string opcao = Console.ReadLine();
+
+                switch (opcao){
+                    case "1":
+                        CadastrarPessoa();
+                        break;
+                    case "2":
+                        ListarUsuarios();
+                        break;
+                    case "3":
+                        Console.WriteLine("Encerrado....");
+                        return; 
+                    default:
+                        Console.WriteLine("Opção inválida! Tente novamente.\n");
+                        break; 
+                }
             }
         }
 
@@ -71,7 +71,8 @@ namespace CadastroEConsultas
             }else if(resposta == "Nao" || resposta == "nao" || resposta == "n" || resposta == "N"){
              Console.WriteLine("Ok, encerrado...");
             }else{
-               Console.WriteLine("Algo deu errado!");
+               Console.WriteLine("Tente novamente");
+               CadastrarPessoa();
             }
         }
 
@@ -103,18 +104,19 @@ namespace CadastroEConsultas
                     return;
                 default:
                     Console.WriteLine("Opção inválida! Tente novamente.");
+                    ListarUsuarios();
                     break;
             }
         }
 
         static void BuscarUsuario(){
-         Console.WriteLine("Digite o nome do usuário que deseja buscar:");
-         string? nomeBusca = Console.ReadLine();
+        Console.WriteLine("Digite o nome do usuário que deseja buscar:");
+        string? nomeBusca = Console.ReadLine();
 
          //A busca atraves o usuário na lista pelo nome (case-insensitive)
-         var usuarioEncontrado = pessoas.Find(p => p.Nome.Equals(nomeBusca, StringComparison.OrdinalIgnoreCase));
+        var usuarioEncontrado = pessoas.Find(p => p.Nome.Equals(nomeBusca, StringComparison.OrdinalIgnoreCase));
 
-      if (usuarioEncontrado != null) {
+        if (usuarioEncontrado != null) {
         //Exibe as informações do usuário encontrado
         Console.WriteLine($"Usuário encontrado: Nome: {usuarioEncontrado.Nome}, Email: {usuarioEncontrado.Email}, Idade: {usuarioEncontrado.Idade}");
         }else{
@@ -138,6 +140,7 @@ namespace CadastroEConsultas
                     return;
                 default:
                     Console.WriteLine("Opção inválida! Tente novamente.");
+                    BuscarUsuario();
                     break;
             }
         }

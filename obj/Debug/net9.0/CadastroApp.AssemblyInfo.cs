@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CadastroApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+44c2213b5bad8792867102d307e277c139b255e4")]
 [assembly: System.Reflection.AssemblyProductAttribute("CadastroApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CadastroApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

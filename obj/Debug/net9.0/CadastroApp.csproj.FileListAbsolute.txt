@@ -26,3 +26,4 @@ C:\Users\evert\OneDrive\Área de Trabalho\CadastroApp\obj\Debug\net9.0\refint\Ca
 C:\Users\evert\OneDrive\Área de Trabalho\CadastroApp\obj\Debug\net9.0\CadastroApp.pdb
 C:\Users\evert\OneDrive\Área de Trabalho\CadastroApp\obj\Debug\net9.0\CadastroApp.genruntimeconfig.cache
 C:\Users\evert\OneDrive\Área de Trabalho\CadastroApp\obj\Debug\net9.0\ref\CadastroApp.dll
+C:\Users\evert\OneDrive\Área de Trabalho\CadastroApp\obj\Debug\net9.0\CadastroApp.sourcelink.json
