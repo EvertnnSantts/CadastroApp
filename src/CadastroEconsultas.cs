@@ -4,27 +4,24 @@ namespace CadastroEConsultas
 {
     class Program {
         static List<Pessoa> pessoas = new List<Pessoa>();
-        static void Main(string[] args)
-        {
+        static void Main(string[] args){
             // Coleta de nome do usuário:
             Console.WriteLine("Bem-vindo ao cadastroEconsultas \nQual é seu nome?");
             string? nome = Console.ReadLine();
             // Se o usuário recusar a digitar seu nome, os serviços da aplicação não serão disponíveis:
-            if (string.IsNullOrEmpty(nome))
-            {
+            if (string.IsNullOrEmpty(nome)){
                 Console.WriteLine("Não pdemos continuar sem seu nome :(");
                 return;
             }
-
             // Bloco de serviços da aplicação:
             while (true){
                 // Bloco de serviços da aplicação:
-                Console.WriteLine($"\nBem-vindo {nome}! ao nosso menu de serviços");
+                Console.WriteLine($"\nBem-vindo {nome}");
+                Console.WriteLine("========== MENU ==========");
                 Console.WriteLine("1. Cadastrar Usuario\n2. Lista de Usuarios\n3. Sair");
                 Console.WriteLine("Escolha uma opção: \nObs: Digite apenas o número do serviço desejado!");
-
+                //
                 string opcao = Console.ReadLine();
-
                 switch (opcao){
                     case "1":
                         CadastrarPessoa();
@@ -42,34 +39,33 @@ namespace CadastroEConsultas
             }
         }
 
-        // Cadastro de usuários:
+        // Cadastro de usuários
         static void CadastrarPessoa()
         {
-            // Área de coletar dados do usuário
-            Console.WriteLine("-------- ÁREA DE CADASTRO --------");
+            //Área de cadastro de Usuario
+            Console.WriteLine("========== ÁREA DE CADASTRO ==========");
             Console.Write("Nome do usuário: ");
             string nome = Console.ReadLine();
             Console.Write("Email do usuário: ");
             string email = Console.ReadLine();
             Console.Write("Idade do usuário: ");
             int idade;
-            while (!int.TryParse(Console.ReadLine(), out idade))
-            {
+            while (!int.TryParse(Console.ReadLine(), out idade)){
                 Console.WriteLine("Idade inválida. Por favor, insira um número válido.");
             }
-            // Criação do objeto Pessoa:
+            //Criação do objeto Pessoa
             Pessoa novaPessoa = new Pessoa(nome, email, idade);
-            // Adicionando o novo usuário à lista de cadastro
+            //Adicionando o novo usuário à lista de cadastro
             pessoas.Add(novaPessoa);
-            // Mensagem de sucesso:
+            //Mensagem de sucesso:
             Console.WriteLine($"Usuário {nome} cadastrado com sucesso!");
             //escolha da consulta
             Console.WriteLine("Pronto, agora você quê ir para lista Usuario? responda com: Sim ou Não");
-             string? resposta = Console.ReadLine();
+            string? resposta = Console.ReadLine();
             if (resposta == "Sim" || resposta == "sim" || resposta == "s" || resposta == "S"){
               ListarUsuarios();
             }else if(resposta == "Nao" || resposta == "nao" || resposta == "n" || resposta == "N"){
-             Console.WriteLine("Ok, encerrado...");
+            Console.WriteLine("Ok, encerrado...");
             }else{
                Console.WriteLine("Tente novamente");
                CadastrarPessoa();
@@ -84,15 +80,14 @@ namespace CadastroEConsultas
             }
 
             //Lista de usuários:
-            Console.WriteLine("-------- Lista de Pessoas --------");
+            Console.WriteLine("========== Lista de Pessoas ==========");
             foreach (var pessoa in pessoas){
              Console.WriteLine($"Nome: {pessoa.Nome}, Email: {pessoa.Email}, Idade: {pessoa.Idade}");
             }
-            Console.WriteLine("-------- MENU --------");
+            Console.WriteLine("========= MENU ==========");
             Console.WriteLine("1.Consulta usuario por nome\n2.Cadastrar usuario\n3.Sair\nObs: digiti apenas o numero da opçao que deseja. ");
              string? resposta = Console.ReadLine();
-                 switch (resposta)
-            {
+                 switch (resposta){
                 case "1":
                     BuscarUsuario();
                     break;
@@ -123,7 +118,7 @@ namespace CadastroEConsultas
         //Caso o usuário não seja encontrado:
         Console.WriteLine("Usuário não encontrado.");
         }
-        Console.WriteLine("-------- MENU --------");
+        Console.WriteLine("========== MENU ===========");
         Console.WriteLine("1. Cadastrar Usuario\n2. Lista de Usuarios\n3. Sair");
         Console.WriteLine("Escolha uma opção: \nObs: Digite apenas o número do serviço desejado!");
         // A aplicação irá direcionar o usuário de acordo com a escolha
