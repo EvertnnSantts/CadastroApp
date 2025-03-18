@@ -2,7 +2,11 @@
 Status: Concluido.
 
 ## 📖Descrição
-Essa aplicação usar principios básico de programação mas extremaente importante, feitaa totalmente C# com .NET
+Esta aplicação foi desenvolvida inteiramente em C# com .NET para rodar em ambiente de console, utilizando princípios básicos de programação, mas fundamentais para a construção de sistemas eficientes.
+
+O sistema permite o cadastro de usuários, possibilitando o registro de novas informações de forma estruturada. Além disso, conta com funcionalidades para edição e remoção de dados, garantindo a atualização e manutenção das informações conforme necessário. Também oferece a listagem organizada dos registros armazenados, facilitando a visualização dos dados diretamente no console.
+
+Para garantir a integridade das informações, a aplicação implementa validação de entradas, assegurando que os dados informados pelo usuário estejam no formato adequado. Todo o código foi desenvolvido seguindo boas práticas de programação, tornando o sistema modular, organizado e de fácil manutenção.
 
 ## 📦 Instalação
 
