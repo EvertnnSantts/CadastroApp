@@ -6,7 +6,13 @@ namespace CadastroEConsultas
         static List<Pessoa> pessoas = new List<Pessoa>();
         static void Main(string[] args){
             // Coleta de nome do usuário:
-            Console.WriteLine("Bem-vindo ao cadastroEconsultas \nQual é seu nome?");
+            Console.WriteLine("");
+            Console.WriteLine("===================================================");
+            Console.WriteLine("===================================================");
+            Console.WriteLine("=============== CadastroEconsultas ================");
+            Console.WriteLine("===================================================");
+            Console.WriteLine("===================================================");
+            Console.WriteLine("POR FAVOR, INFORME SEU NOME?");
             string? nome = Console.ReadLine();
             // Se o usuário recusar a digitar seu nome, os serviços da aplicação não serão disponíveis:
             if (string.IsNullOrEmpty(nome)){
@@ -16,11 +22,18 @@ namespace CadastroEConsultas
             // Bloco de serviços da aplicação:
             while (true){
                 // Bloco de serviços da aplicação:
-                Console.WriteLine($"\nBem-vindo {nome}");
-                Console.WriteLine("========== MENU ==========");
-                Console.WriteLine("1. Cadastrar Usuario\n2. Lista de Usuarios\n3. Sair");
-                Console.WriteLine("Escolha uma opção: \nObs: Digite apenas o número do serviço desejado!");
-                //
+                Console.WriteLine("===================================================");
+                Console.WriteLine("===================================================");
+                Console.WriteLine($"================= Bem-vindo {nome} ================");
+                Console.WriteLine("===================== MENU ========================");
+                Console.WriteLine("===================================================");
+                Console.WriteLine("===================================================");
+                Console.WriteLine("============== 1. Cadastrar Usuario ===============");
+                Console.WriteLine("============== 2. Lista de Usuarios ===============");
+                Console.WriteLine("============== 3. Sair ============================");
+                Console.WriteLine("===================================================");
+                Console.WriteLine("===================================================");
+                Console.WriteLine("Obs: Digite apenas o número do serviço desejado!");
                 string opcao = Console.ReadLine();
                 switch (opcao){
                     case "1":
@@ -43,7 +56,11 @@ namespace CadastroEConsultas
         static void CadastrarPessoa()
         {
             //Área de cadastro de Usuario
-            Console.WriteLine("========== ÁREA DE CADASTRO ==========");
+            Console.WriteLine("===================================================");
+            Console.WriteLine("===================================================");
+            Console.WriteLine("================= ÁREA DE CADASTRO ================");
+            Console.WriteLine("===================================================");
+            Console.WriteLine("===================================================");
             Console.Write("Nome do usuário: ");
             string nome = Console.ReadLine();
             Console.Write("Email do usuário: ");
@@ -80,12 +97,24 @@ namespace CadastroEConsultas
             }
 
             //Lista de usuários:
-            Console.WriteLine("========== Lista de Pessoas ==========");
+            Console.WriteLine("===================================================");
+            Console.WriteLine("===================================================");
+            Console.WriteLine("================= Lista de Pessoas ================");
+            Console.WriteLine("===================================================");
+            Console.WriteLine("===================================================");
             foreach (var pessoa in pessoas){
              Console.WriteLine($"Nome: {pessoa.Nome}, Email: {pessoa.Email}, Idade: {pessoa.Idade}");
             }
-            Console.WriteLine("========= MENU ==========");
-            Console.WriteLine("1.Consulta usuario por nome\n2.Cadastrar usuario\n3.Sair\nObs: digiti apenas o numero da opçao que deseja. ");
+            Console.WriteLine("===================================================");
+            Console.WriteLine("===================================================");
+            Console.WriteLine("======================= MENU ======================");
+            Console.WriteLine("===================================================");
+            Console.WriteLine("===================================================");
+            Console.WriteLine("============== 1. Cadastrar Usuario ===============");
+            Console.WriteLine("============== 2. Lista de Usuarios ===============");
+            Console.WriteLine("============== 3. Sair ============================");
+            Console.WriteLine("===================================================");
+            Console.WriteLine("===================================================");
              string? resposta = Console.ReadLine();
                  switch (resposta){
                 case "1":
@@ -118,9 +147,17 @@ namespace CadastroEConsultas
         //Caso o usuário não seja encontrado:
         Console.WriteLine("Usuário não encontrado.");
         }
-        Console.WriteLine("========== MENU ===========");
-        Console.WriteLine("1. Cadastrar Usuario\n2. Lista de Usuarios\n3. Sair");
-        Console.WriteLine("Escolha uma opção: \nObs: Digite apenas o número do serviço desejado!");
+        Console.WriteLine("===================================================");
+        Console.WriteLine("===================================================");
+        Console.WriteLine("======================== MENU =====================");
+        Console.WriteLine("===================================================");
+        Console.WriteLine("===================================================");
+        Console.WriteLine("============== 1. Cadastrar Usuario ===============");
+        Console.WriteLine("============== 2. Lista de Usuarios ===============");
+        Console.WriteLine("============== 3. Sair ============================");
+        Console.WriteLine("===================================================");
+        Console.WriteLine("===================================================");
+        Console.WriteLine("Obs: Digite apenas o número do serviço desejado!");
         // A aplicação irá direcionar o usuário de acordo com a escolha
         string opcao1 = Console.ReadLine();
          switch (opcao1){
